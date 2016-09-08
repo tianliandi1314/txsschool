@@ -1,0 +1,119 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-31 19:59 2016/8/31
+-->
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+
+<title>倾斜切割</title>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        *,*:before,*:after{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+        }
+        body{
+            height: 100%;
+        }
+        .pages{
+            width: 1200px;
+            height: 600px;
+            margin: 100px auto;
+        }
+        .page{
+            position: relative;
+            width: 1200px;
+            height: 600px;
+            border: 1px solid blue;
+
+        }
+        .page-half{
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height:100%;
+            transition: transform 1s;
+        }
+        .page-half-left{
+            left: 0;
+            transform:translate3d(-32.4%,100%,0);
+            background: blue;
+        }
+        .page-half-right{
+            background: red;
+            right: 0;
+            transform:translate3d(32.4%,100%,0);
+        }
+         .page.active .page-half{
+             transform: translate3d(0,0,0);
+         }
+        .page-skew{
+            overflow: hidden;
+            position: absolute;
+            top:600px;
+            width: 140%;
+            height: 140%;
+            transform: skew(-18deg);
+            background: deeppink;
+            z-index: 10;
+            opacity: 0.5;
+        }
+
+    </style>
+</head>
+<body>
+<div class="pages">
+    <div class="page page-1 active">
+        <div class="page-half page-half-left">
+            <div class="page-skew">
+                <div class="page-content">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="page-half page-half-right">
+            <div class="page-skew">
+                <div class="page-content">
+                    <h2 class="page-heading">熟读与激情</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab accusantium aliquam asperiores autem consectetur eius fugit harum illum libero, maiores minima nulla officia quisquam saepe similique sit. Assumenda, cum.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var curPage=1;
+        var numOfPages=$(".page").length;
+        var animTime=1000;
+        var scrolling=false;
+        var pgPrefix=".page-";
+        function pageination() {
+            scroll=true;
+            $(pgPage).removeClass("inactive").addClass("active");
+            $(pgPage+(curPage-1)).addClass("inactive");
+            $(pgPage+(curPage+1)).removeClass("active")
+            setTimeout(function(){
+                scrolling=false;
+            },animTime)
+            function navigateUp() {
+                if(curPage===1)return;
+                cu
+            }
+        }
+    })
+</script>
+</body>
+</html>

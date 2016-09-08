@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+ <head>
+  <!--声明当前页面的编码集:charset=gbk,gb2312(中文编码),utf-8国际编码-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- 当前页面的三要素 -->
+  <title>dabaoOS</title>
+  <meta name="Keywords" content="关键词,关键词" />
+  <meta name="Description" content="" />
+  <meta name="publishid" content="自从有了大宝老师妈妈再也不用担心我的学习。" />
+  <meta name="Author" content="" />
+  <style type="text/css">
+    *{margin:0;padding:0;}
+   body{background:url("images/5.jpg")}
+   ul li,ol li{list-style:none;}
+   .menu{width:200px;  background:#fff;  position:fixed; left:0px; top:0px; box-shadow:0px 0px 10px #000; cursor:pointer; display:none;}
+   .menu ul li{ border-bottom:1px solid #ddd;text-align:center; font:14px/35px 微软雅黑;  }
+   .menu ul li:hover{background:#0066ff; color:#fff;}
+     /*css  bb*/
+    #bb{width:710px;height:360px;background:rgba(0,0,0,0.5);position:absolute;top:150px;left:200px;border:1px solid #000;display:none; z-index:-1;}
+    #bb h3{height:43px;background:url("images/title_bg.jpg");color:#fff;font-size:18px;
+	 font-family:"微软雅黑";font-weight:100;/*文字加粗100*/
+	 }
+	 #bb h3 img.close{float:right;margin:10px 10px 0px 0px;}
+     #bb ul li{width:200px;height:125px;border:5px solid #ffffff;list-style:none;/*去圆点*/float:left;margin:10px 10px;}
+  </style>
+ </head>
+	 <body>
+		 <div class="menu">
+		    <ul>
+			    <li>添加应用</li>
+				<li>获取课程</li>
+				<li>添加笔记</li>
+				<li>刷新</li>
+				<li>上传资料</li>
+				<li>更换背景</li>
+				<li>注销</li>
+			</ul>
+		 </div>
+
+     <div id="bb">
+	 <h3>桌面背景墙<img src="images/close.png"class="close"></h3>
+	 <ul>
+	 <li><img src="images/s_1.jpg" shuxing="images/1.jpg" /></li>
+	 <li><img src="images/s_2.jpg" shuxing="images/2.jpg" /></li>
+	 <li><img src="images/s_3.jpg" shuxing="images/3.jpg" /></li>
+	 <li><img src="images/s_4.jpg" shuxing="images/4.jpg" /></li>
+	 <li><img src="images/s_5.jpg" shuxing="images/5.jpg" /></li>
+	 <li><img src="images/s_6.jpg" shuxing="images/6.jpg" /></li>
+	</ul>
+	 </div>
+
+   <script src="js/jquery.js"></script>
+   <script>
+     //屏蔽默认的右键菜单   
+      document.oncontextmenu=function(){
+	     return false;   
+	  }
+	 //鼠标按下去的坐标值  
+	 $(document).mousedown(function(e){
+	    //监听   左键 1  右键 3  滚轮 2
+		  var key=e.which;  
+		 if(key==3){   
+		    //获取坐标值
+			var _top= e.clientY;  //y轴坐标值   
+			var _left= e.clientX;  //X轴坐标值   
+		  $(".menu").show().css({left:_left,top:_top})
+		 }
+		  if(key==1){   
+		 $(document).click(function(){
+		    $(".menu").hide();
+		  });
+		 }
+	 });
+	 //个性化的定制   $() dom元素  this 当前当下的实例对象
+	 $(".menu ul li").click(function(){
+	   // 序列号
+	   var index=$(this).index();  
+	    if(index==0){  
+		   alert("功能正在开发中.......")
+		}
+		if(index==1){  
+		   alert("功能正在开发中.......")
+		}
+		if(index==2){  
+		   alert("功能正在开发中.......")
+		}
+		if(index==3){  
+		   window.location.reload(); //重新加载文档
+		}
+		if(index==4){  
+		    alert("功能正在开发中.......")
+		}
+		if(index==5){  
+		   $("#bb").show();
+		}
+		if(index==6){  
+		    window.close();  //关闭窗口
+		}
+	 });
+     
+	 //更换背景
+	 $("#bb ul li").click(function(){
+	     var myImg=$(this).find("img").attr("shuxing"); 
+		 //alert(myImg); //attr()  返回被选中元素的属性值
+		 $("body").css("background","url("+myImg+") no-repeat");
+	 });
+
+	
+   </script>
+	 </body>
+</html>

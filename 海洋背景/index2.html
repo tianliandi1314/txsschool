@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .warp{
+        width: 800px;
+        margin: 0 auto
+    }
+    canvas{
+        position: relative
+        background:#ccc;
+        margin: 0 auto;
+    }
+    .can1{
+        background: url(images/background.jpg) no-repeat; 
+    }
+    
+</style>
+<body>
+    <div class='warp'>
+       <canvas class="can1" width="800" height="600"></canvas>
+       <canvas class='can2' width="800" height="600"></canvas>
+    </div> 
+    <script>
+        window.onload=function(){
+            var oCan=document.querySelector('canvas');
+            var ctx=oCan.getContext('2d');
+            ctx.beginPath();
+            ctx.arc(100,100,50,0,Math.PI*2);
+            //ctx.fill();
+            ctx.stroke()
+            ctx.closePath();
+            
+            console.log(oCan);
+        }
+    </script>
+</body>
+</html>

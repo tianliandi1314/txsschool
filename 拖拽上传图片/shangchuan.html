@@ -1,0 +1,81 @@
+<!--
+*shangchuan.html
+*@auther Administrator
+*@create 2016-08-15 21:23 2016/8/15
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src='js/jquery-1.11.3.min.js'></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+            $('font.upload,div.left').click(function(){
+                $('.Img').slideToggle();
+            });
+
+            var Div=$('.Img').get(0);
+
+            Div.ondragover=function(e){
+                e.preventDefault();
+            };
+            /*$('document').ondragover=function(e){
+                e.preventDefault();
+            };*/
+            Div.ondrop=function (e) {
+                e.preventDefault();
+                var fs=e.dataTransfer.files;
+                var len=fs.length;
+                var _type=fs[0].type;
+                alert(typeof _type);
+                if(_type.indexOf('image')!=-1){
+                    console.log('继续');
+                    var fd=new FileReader();
+                    fd.readAsDataURL(fs[0]);
+
+                    fd.onload=function(){
+                        var myImg=$("<img src='' height='120'/>");
+                        myImg.attr('src',this.result);
+                        $('.Img').append(myImg);
+                        $('.text').html('');
+                    }
+
+                }else{
+                    console.log('你老花眼')
+                }
+            };
+            $('.but span').click(function () {
+                var mesg=$("<p>"+$('.right').html()+"</p>");
+                $('body').append(mesg);
+            });
+
+
+
+        }
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+<div class="menu">
+    <div class='con'>
+        <div class="left"></div>
+        <div class="right" contenteditable="true"></div>
+    </div>
+
+    <div class="but">
+        <font>本地上传</font>
+        <font class="upload">拖拽上传</font>
+        <span>发布</span>
+    </div>
+
+    <div class="Img">
+        <p class="text">请将图片拖拽到此区域</p>
+    </div>
+</div>
+</body>
+</html>

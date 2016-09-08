@@ -1,0 +1,210 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../ruby/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/index.scss */
+.all {
+  width: 1200px;
+  height: 500px;
+  margin: 50px auto;
+  border: 1px solid #000000;
+}
+
+/* line 7, ../sass/index.scss */
+.all > h2 {
+  padding: 10px;
+}
+
+/* line 10, ../sass/index.scss */
+.photo {
+  position: relative;
+  text-align: center;
+  width: 480px;
+  height: 300px;
+  border: 1px solid #f00;
+  margin: 10px;
+  float: left;
+}
+
+/* line 20, ../sass/index.scss */
+.photo figure {
+  position: relative;
+  width: 480px;
+  height: 300px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  background: #5389B5;
+}
+
+/* line 30, ../sass/index.scss */
+.photo figure img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.8;
+}
+
+/* line 36, ../sass/index.scss */
+.photo figure figcaption {
+  padding: 10px;
+  color: #fff;
+  font-size: 14px;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 460px;
+  height: 280px;
+}
+
+/* line 47, ../sass/index.scss */
+figure figcaption a {
+  z-index: 10;
+  display: block;
+  width: 75px;
+  height: 25px;
+  text-align: center;
+  line-height: 25;
+  position: absolute;
+  right: 50px;
+  bottom: 15px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid #4A88BF;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.35s;
+  opacity: 0;
+}
+
+/* line 67, ../sass/index.scss */
+figure figcaption a:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: #3D83BC;
+  border-color: #fff;
+}
+
+/* line 72, ../sass/index.scss */
+figure figcaption h1 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+/* line 78, ../sass/index.scss */
+figure img {
+  transition: opacity 1s,transform 0.35s;
+}
+
+/* line 81, ../sass/index.scss */
+figcaption div p {
+  display: block;
+  padding: 5px;
+  margin: 6px 0;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  transition: opacity 0.35s, transform 0.35s;
+  transform: translateX(-360px);
+  opacity: 0;
+}
+
+/* line 93, ../sass/index.scss */
+figcaption div p:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+/* line 96, ../sass/index.scss */
+figcaption div p:nth-child(2) {
+  transition-delay: 0.25s;
+}
+
+/* line 99, ../sass/index.scss */
+figcaption div p:nth-child(3) {
+  transition-delay: 0.45s;
+}
+
+/* line 102, ../sass/index.scss */
+.all .photo:hover p {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+/* line 107, ../sass/index.scss */
+.all .photo:hover figure img {
+  transform: scale(1.2);
+  transition: transform 0.35s;
+}
+
+/* line 112, ../sass/index.scss */
+.all .photo:hover figcaption a {
+  opacity: 1;
+}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 16px;
+            color:#333;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            background: url("images/bg.jpg") #feca98 no-repeat;
+            background-size:cover;
+        }
+        .login{
+            width: 350px;
+            height: 330px;
+            position: fixed;
+            left: 40%;
+            top: 25%;
+            box-shadow:0 0 20px #000;
+            padding: 20px;
+        }
+        .login .login-box{
+            height: 330px;
+        }
+        .login .login-box span{
+            color: #000;
+            font-size: 30px;
+        }
+        .login .login-box a.hide{
+            color:#000;
+            float: right;
+        }
+        .login-box input{
+            border: none;
+            outline: none;
+            text-indent: 12px;
+            background: #fff;
+            width: 350px;
+            height: 48px;
+            margin-top: 20px;
+            font-size: 16px;
+            border-radius: 10px;
+
+        }
+        .login-box input.submit{
+            background: #f69;
+            color:#000;
+            font-size:12px;
+            border-radius: 10px;
+        }
+        .login-box input.submit:hover{
+            background: yellow;
+        }
+        .login-box a.str{
+            color:#333;
+            font-size: 14px;
+        }
+        .login .tit{
+            color:#000;
+            font-size: 20px;
+            text-align: center;
+        }
+        .barcode{
+            display: block;
+            margin: 10px auto;
+        }
+        .back{
+            color:#000;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <div class="login-box">
+            <div class="header"><span>登陆</span><a href="" class="hide">X</a></div>
+            <input type="text" value="输入ID" onfocus="this.value='' " onblur="this.value ='输入ID'"/>
+            <input type="password" value="输入密码" onfocus="this.value='' " onblur="this.value ='输入密码'"/>
+            <input type="text" value="请输入验证码" onfocus="this.value='' " onblur="this.value ='请输入验证码'"/>
+            <input type="submit" value="登陆" class="submit">
+            <a href="#" class="str">请使用二维码扫描登陆</a>
+        </div>
+    </div>
+    <!--
+    onfocus 聚焦事件
+    onblur 失去焦点
+    -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function () {
+            game.init();
+        });
+        var temHtml="";
+        var game={
+            login:$(".login"),
+            init:function () {
+                $(".str").click(function () {
+                    game.sweep();
+                })
+            },
+            sweep:function () {
+                temHtml=game.login.html();
+                game.login.empty();
+                game.barcode();
+            },
+            barcode:function () {
+                var barcode=$("<img src='images/1.png'/>");
+                barcode.addClass('barcode');
+                var back=$("<div style='cursor:pointer;line-height:20px;text-align:center;color:#000;' onclick='game.back()'>");
+                var tit=$("<h1>扫码登陆</h1>");
+                    tit.addClass("tit");
+                    back.addClass("back");
+                    back.html("返回登陆页");
+
+                game.login.append(tit);
+                game.login.append(barcode);
+                game.login.append(back);
+            },
+            back:function () {
+                game.login.html(temHtml);
+                $(".str").click(function () {
+                    game.sweep();
+                });
+            }
+        };
+        </script>
+</body>
+</html>

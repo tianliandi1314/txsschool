@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+ <head>
+  <!--声明当前页面的编码集:charset=gbk,gb2312(中文编码),utf-8国际编码-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- 当前页面的三要素 -->
+  <title>javascript 内存</title>
+  <meta name="Keywords" content="关键词,关键词" />
+  <meta name="Description" content="" />
+  <meta name="publishid" content="自从有了大宝老师妈妈再也不用担心我的学习。" />
+  <meta name="Author" content="" />
+  <style type="text/css">
+    html,body{height:100%;}
+    body{background:url("images/bg1.jpg") no-repeat top center; background-color:#E8E2C2; font-size:16px; font-family:"微软雅黑"; color:#999;}
+	a{text-decoration:none;}
+	.login{width:350px; height:330px; background:rgba(255,255,255,0.2); position:fixed; left:40%; top:25%; border-radius:5px; box-shadow:0px 0px 20px #000; padding:20px;}
+	.login .login-box{height:330px;  }
+    .login-box  span{font-size:30px;}
+    .login-box a.hide{color:#666; float:right;}
+    .login-box input{border:none; width:350px; height:48px; margin-top:15px;outline:none;  font-size:14px; font-family:"微软雅黑"; color:#999; text-indent:15px; background:rgba(255,255,255,0.5);}
+  .login-box input.submit{background:#ff3333; color:#fff; font-family:"楷体";font-size:24px; border-radius:10px;}
+   .login-box input.submit:hover{background:#ff6600;}
+    .login-box a.str{color:#333; line-height:30px; font-size:14px; font-family:"微软雅黑";}
+  </style>
+ </head>
+	 <body>
+	    <div class="login">
+		   <div class="login-box">
+		    <div class="header"><span>登录</span><a href="#" class="hide">X</a></div>
+			<input type="text" value="请输入学院ID"  onfocus="this.value='' " onblur="this.value='请输入学院ID'" />
+			<input type="password" value="password"  onfocus="this.value='' " onblur="this.value='password'" />
+			<input type="text" value="请输入验证码"  onfocus="this.value='' " onblur="this.value='请输入验证码'" />
+			<input type="submit"value="登录" class="submit" />
+
+			<a href="#" class="str">请使用二维码扫描登录</a>
+		   </div>
+		</div>
+
+<!---
+ onfocus   input有光标的时候
+ onblur    input没有光标的时候
+--->
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function(){
+	   game.init();
+	});
+ 
+  var tmpHtml="";
+//  自定义对象
+  var game={
+       login:$(".login"),
+	   init:function(){  //页面初始化
+	     //我要生成二维码
+		 $(".str").click(function(){
+		   game.sweep();
+		 });
+	   },
+	  //清空 login页面
+	   sweep:function(){
+         tmpHtml=game.login.html(); //获取清空页面之前login的内存
+	    game.login.empty();
+		game.barcode();
+	   },
+	   //生成二维码
+	   barcode:function(){
+	      var barcode= $("<img src='images/1.png' />");
+            barcode.addClass("barcode");
+		  var back=$("<div style='cursor:pointer; line-height:30px; text-align:center; color:#000;' onclick='game.back()' >");
+			back.addClass("back");
+			back.html("返回登录页");
+			game.login.append(barcode);
+	        game.login.append(back);
+	   },
+	   //返回登录页
+	   back:function(){
+		   alert(1);
+	     game.login.html(tmpHtml);  // 之前login的内存 
+		   //我要生成二维码
+		 $(".str").click(function(){
+		   game.sweep();
+		 });
+	   }
+  };
+
+
+</script>
+	 </body>
+</html>

@@ -1,0 +1,294 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-29 20:01 2016/8/29
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            font-family:Cambria,"hoefler Text",times ;
+        }
+        .content>input,.content>a{
+            position: fixed;
+            bottom:0;
+            width: 20%;
+            cursor: pointer;
+            font-size: 18px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .content>input{
+            opacity: 0;
+            z-index: 100;
+        }
+        .content>a{
+            z-index: 10;
+            font-weight: 800;
+            background: #479DC7;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(204,204,204,0.5);
+        }
+        .content:before{
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 40px;
+            background: #A8D3EE;
+            z-index: 9;
+            bottom: 0;
+        }
+        #control1,#control1 + a{
+            left: 0;
+        }
+        #control2,#control2 + a{
+            left: 20%;
+        }
+        #control3,#control3 + a{
+            left: 40%;
+        }
+        #control4,#control4 + a{
+            left: 60%;
+        }
+        #control5,#control5 + a{
+            left: 80%;
+        }
+        .content>input:checked + a,
+        .content>input:checked:hover + a{
+            background: #8EC4F4;
+        }
+        .content>input:checked + a:after,
+        .content>input:checked:hover +a:after{
+            position: absolute;
+            bottom: 100%;
+            border: solid transparent;
+            content: "";
+            height: 0;
+            width: 0;
+            border-bottom-color:#8EC4F4 ;
+            border-width: 20px;
+            left: 50%;
+            margin-left: -20px;
+            z-index: 1000;
+        }
+        .content>input:hover + a{
+            background: #336488;
+        }
+        .scroll,
+        .section{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .scroll{
+            top: 0;
+            left: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        .section{
+            background: #fff;
+            overflow: hidden;
+        }
+        #control1:checked~.scroll{
+            transform: translateY(0%);
+        }
+        #control2:checked~.scroll{
+            transform: translateY(-100%);
+        }
+        #control3:checked~.scroll{
+            transform: translateY(-200%);
+        }
+        #control4:checked~.scroll{
+            transform: translateY(-300%);
+        }
+        #control5:checked~.scroll{
+            transform: translateY(-400%);
+        }
+        #control1 ~ .scroll #p1 p,
+        #control2 ~ .scroll #p2 p,
+        #control3 ~ .scroll #p3 p,
+        #control4 ~ .scroll #p4 p,
+        #control5 ~ .scroll #p5 p
+        {
+            display: block;
+            width:70%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 50px;
+            margin: 0 auto;
+            color:#A8D3EE;
+            opacity: 1;
+
+        }
+        #control1:checked ~ .scroll #p1 p,
+        #control2:checked ~ .scroll #p2 p,
+        #control3:checked ~ .scroll #p3 p,
+        #control4:checked ~ .scroll #p4 p,
+        #control5:checked ~ .scroll #p5 p
+        {
+            animation: p 0.8s ease-in-out 0.3s;
+        }
+        @keyframes p {
+            0%{
+                /*color: black;*/
+                margin-top: 300px;
+                opacity:0;
+            }
+            50%{
+                /*color: red;*/
+                margin-top: 150px;
+                opacity: 0.5;
+            }
+            100%{
+                /*color: black;*/
+                margin-top: 0;
+                opacity: 1;
+            }
+        }
+
+        #control1:checked ~ .scroll #p1 div,
+        #control2:checked ~ .scroll #p2 div,
+        #control3:checked ~ .scroll #p3 div,
+        #control4:checked ~ .scroll #p4 div,
+        #control5:checked ~ .scroll #p5 div{
+            width: 300px;
+            height: 150px;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            font-weight: 800;
+            font-size: 24px;
+        }
+        #control1:checked ~ .scroll #p1 div:before,
+        #control2:checked ~ .scroll #p2 div:before,
+        #control3:checked ~ .scroll #p3 div:before,
+        #control4:checked ~ .scroll #p4 div:before,
+        #control5:checked ~ .scroll #p5 div:before{
+            position: absolute;
+            top:40px;
+            margin-left: -10px;
+            content:attr(title)"";
+            font-size: 50px;
+            color:white;
+            z-index: 1;
+            animation: tit 0.8s ease-in-out 0.6s;
+        }
+        #control1:checked ~ .scroll #p1 div:after,
+        #control2:checked ~ .scroll #p2 div:after,
+        #control3:checked ~ .scroll #p3 div:after,
+        #control4:checked ~ .scroll #p4 div:after,
+        #control5:checked ~ .scroll #p5 div:after{
+            position: absolute;
+            left: 50%;
+            top: calc( -1.414*150*0.5px);
+            margin-left: calc( -1.414*150*0.5px);
+            content:"";
+            font-size: 500px;
+            transform: rotate(45deg);
+            width: calc(1.414*150px);
+            height: calc(1.414*150px);
+            background: #A8D3EE;
+        }
+        #control1 ~ .scroll h1,
+        #control2 ~ .scroll h1,
+        #control3 ~ .scroll h1,
+        #control4 ~ .scroll h1,
+        #control5 ~ .scroll h1{
+            margin: 50px;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+            font-size: 50px;
+            color:#F69;
+            opacity: 1;
+        }
+        #control1:checked ~ .scroll h1,
+        #control2:checked ~ .scroll h1,
+        #control3:checked ~ .scroll h1,
+        #control4:checked ~ .scroll h1,
+        #control5:checked ~ .scroll h1{
+            animation: h1 1s ease 0.3s;
+        }
+        @keyframes h1 {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        @keyframes tit {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <input type="radio" id="control1" name="set" checked>
+        <a href="#p1">告白气球</a>
+        <input type="radio" id="control2" name="set" checked>
+        <a href="#p2">Wedding Dress</a>
+        <input type="radio" id="control3" name="set" checked>
+        <a href="#p3">早安</a>
+        <input type="radio" id="control4" name="set" checked>
+        <a href="#p4">晴天</a>
+        <input type="radio" id="control5" name="set" checked>
+        <a href="#p5">IF You</a>
+
+        <div class="scroll">
+            <section class="section" id="p1">
+                <div class="arrow" title="1"></div>
+                <h1>告白气球</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci aperiam aut beatae consequuntur dignissimos dolor et fugiat illum, in laudantium nobis non odio quam sint sit soluta?</p>
+            </section>
+            <section class="section" id="p2">
+                <div class="arrow" title="2">2</div>
+                <h1>Wedding Dress</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci aperiam aut beatae consequuntur dignissimos dolor et fugiat illum, in laudantium nobis non odio quam sint sit soluta?</p>
+            </section>
+            <section class="section" id="p3">
+                <div class="arrow" title="3"></div>
+                <h1>晴天</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci aperiam aut beatae consequuntur dignissimos dolor et fugiat illum, in laudantium nobis non odio quam sint sit soluta?</p>
+            </section>
+            <section class="section" id="p4">
+                <div class="arrow" title="4"></div>
+                <h1>早安</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci aperiam aut beatae consequuntur dignissimos dolor et fugiat illum, in laudantium nobis non odio quam sint sit soluta?</p>
+            </section>
+            <section class="section" id="p5">
+                <div class="arrow" title="5"></div>
+                <h1>IF You</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci aperiam aut beatae consequuntur dignissimos dolor et fugiat illum, in laudantium nobis non odio quam sint sit soluta?</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

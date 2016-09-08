@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .warp{
+        width: 800px;
+        margin: 0 auto
+    }
+    canvas{
+        position: relative;
+        margin: 0 auto;
+    }
+    .can1{
+        background: url(images/background.jpg) no-repeat; 
+    }
+    .can2{
+        position: absolute;
+        top:0;
+    }
+</style>
+<body>
+    <div class='warp'>
+       <canvas class="can1" width="800" height="600"></canvas>
+       <canvas class='can2' width="800" height="600"></canvas>
+    </div>
+    <script src="js/ame.js"></script>
+    <script>
+
+        var oCan1=document.querySelector('.can1');
+        var ctx1=oCan1.getContext('2d');
+        var oCan2=document.querySelector('.can2');
+        var ctx2=oCan2.getContext('2d');
+        var balls=[]; //气泡数组
+        var ame;
+
+        window.onload=function(){
+            function Ball(bx,by,rad,color){
+                this.bx=bx;
+                this.by=by;
+                this.rad=rad;
+                this.fillStyle=color;
+
+                this.draw=function(){
+                    ctx2.fillStyle=this.fillStyle;
+                    ctx2.beginPath();
+                    ctx2.arc(this.bx,this.by,this.rad,0,2*Math.PI);
+                    ctx2.fill();
+                    ctx2.closePath();
+                }
+            }
+
+
+
+            init();
+
+            function init(){
+                ame=new AmeObj();
+
+                ame.init();
+                oCan1.width=800;
+                oCan2.width=800;
+                oCan2.height=600;
+                oCan1.height=600;
+                console.log('这是我的初始化操作');
+                setInterval(function(){
+                    ctx2.clearRect(0,0,800,600);
+                    create();
+                    ame.draw();
+                    //
+                },30);
+
+            }
+
+            //绘制气泡；
+            function create(){
+                var col='rgba(255,255,255,0.4)';//设置背景透明
+                var bx=Math.random()*800;
+                var by=Math.random()*600+200;
+                var rad=Math.random()*8;
+                console.log(ame);
+
+                var ball=new Ball(bx,by,rad, col);
+                balls.push(ball);
+                //console.log(balls[0]);
+
+                //ball.draw();
+                for(var i=0;i<balls.length;i++){
+                    balls[i].by -= 10;
+                    balls[i].draw();
+                }
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>

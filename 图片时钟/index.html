@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link type="text/css" rel="stylesheet" href="css/index.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+	<div id="dv1">
+    	<div id="dv2">
+        	<ul id="u1"></ul>
+            <ul id="u2">
+            	<li class="l3"></li>
+            	<li class="l4"></li>
+            	<li class="l5"></li>
+            	<li class="l6"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		var c="";     /*定义一个变量*/
+		for(var a=1; a<=60; a++){       /*for循环*/
+			var b=a%5;         /*长点*/
+			if(b==0){
+				c+="<li class='l1'></li>";    /*+=  即c=c+后面的*/
+			}else{
+				c+="<li class='l2'></li>";
+			}
+		}
+		/* alert(c); */
+		$("#u1").append(c);
+		$("#u1 li").each(function(n){    /*遍历*/
+			$("#u1 li:eq("+n+")").css({"transform-origin":"5px 190px","transform":"rotate("+6*(n+1)+"deg)"});				
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		var shi=new Date();
+		var s=shi.getSeconds();
+		var m=shi.getMinutes();
+		var h=shi.getHours()-12;
+		function jiShi(){       /*秒 分 时 针转动*/
+			$(".l4").css({"transform-origin":"5px 180px","transform":"rotate("+6*s+"deg)"});
+			$(".l5").css({"transform-origin":"8px 140px","transform":"rotate("+6*(s/60+m)+"deg)"});
+			$(".l6").css({"transform-origin":"10px 110px","transform":"rotate("+30*(m/60+h)+"deg)"});
+			s++;
+			if(s>=60){
+				m++;
+				s=0;
+				if(m>=60){
+					h++;
+					m=0;
+				}
+				if(h>=12){
+					h=0;
+				}
+			}
+		}
+		jiShi();
+		window.setInterval(jiShi,1000);    /*按指定的周期调用函数*/
+	})
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

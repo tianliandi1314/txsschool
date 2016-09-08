@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>真心话大冒险</title>
+		<script src="img/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+				box-sizing: border-box;
+			}
+			.fff{color: #fff;}
+			.wap-contain{
+				max-width: 320px;
+				margin: 0 auto;
+				height: 100%;
+				padding: 20px 45px;
+				background-image: url(img/bg.jpg);
+				background-size: 100% auto;
+				background-repeat: no-repeat;
+				position: relative;
+			}
+			.warper{
+				width: 80%;
+				position: absolute;
+				top:500px;
+			}
+			#result{
+				width: 80%;
+				position: absolute;
+				top: 40px;
+			}
+			.input-name{
+				width: 90%;
+				margin: 0 auto;
+			}
+			.input-name input{
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				height: 40px;
+				border: 1px solid #fff;
+				outline: none;
+				color:#999;
+				
+			}
+			.postrlt{
+				display: block;
+				width: 90%;
+				height: 45px;
+				border-radius: 4px;
+				text-align: center;
+				margin: 0 auto;
+				line-height: 45px;
+				font-size: 18px;
+				background-color: #FF2EA2;
+				color: #fff;
+				text-decoration: none;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="wap-contain">
+			<div class="warper" id="warper">
+				<p class="input-name">
+					<input type="text" name="txtName" id="txtName" placeholder="请输入您的名字" value="" />
+				</p>
+				<p class="btn">
+					<a class="postrlt" id="postrlt">开始真心话大冒险</a>
+				</p>
+			</div>
+			<div id="result">
+				
+			</div>
+		</div>
+		<script type="text/javascript">
+			(function(){
+				$(".postrlt").on("click",postmsg);
+				function postmsg(){
+					var myname=$("#txtName").val();
+					var myid=parseInt(Math.random()*5);
+					if(myname==""){
+						alert("请输入名字");
+					}
+					var json={
+						data:[{
+							id:"1",
+							tag:"抱一位异性直到下一轮真心话大冒险结束",
+							url:"img/1.jpg"
+						},
+						{
+							id:"2",
+							tag:"摆3个芙蓉姐姐S形",
+							url:"img/2.jpg"
+						},
+						{
+							id:"3",
+							tag:"男生将女生逼角落，用'调情式'一手撑墙，两人深情对视10秒",
+							url:"img/3.jpg"
+						},
+						{
+							id:"4",
+							tag:"邀请一位异性与你情歌对唱",
+							url:"img/4.jpg"
+						},
+						{
+							id:"5",
+							tag:"跪地求婚状：如果我不向你求婚，我会后悔一辈子，因为你是我的惟一",
+							url:"img/5.jpg"
+						}]
+					};
+					var reqhtml="<p class='fff'><span>测试结果：</span><br><span class='fff'>"+
+					myname+"</span>:恭喜您，您的真心话大冒险是【"+
+					json.data[myid].tag+
+					"】</br>下图里面画的这个哟！哈哈</p><p><img src='"+
+					json.data[myid].url+"' width='100%'></p><p class='btn'><a class='postrlt' href='javascript:window.location.reload();'>再玩一次</a></p>";
+					
+					$("#warper").hide();
+					$("#result").html(reqhtml);
+				}
+			})();
+		</script>
+	</body>
+</html>

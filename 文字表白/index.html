@@ -1,0 +1,82 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-25 19:59 2016/8/25
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            width: 100%;
+            height: 100%;
+            -webkit-user-select:none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    window.onload=function () {
+
+    var Is_Mouse_Down=false;
+    var word_num=1;
+    var ev;
+    function rnd(n,m) {
+        return parseInt(Math.random()*(m-n)+n)
+    }
+    //alert(rnd(0,255))
+    document.onmousedown=function(){
+        Is_Mouse_Down=true;
+    };
+    document.onmouseup=function () {
+        Is_Mouse_Down=false;
+    };
+    document.onmousemove=Create;
+    function Create(ev) {
+        ev=ev?ev:window.event;
+        var word_div=document.createElement("div");
+
+        word_div.style.position="absolute";
+        word_div.style.left=ev.clientX-16+"px";
+        word_div.style.top=ev.clientY-16+"px";
+        switch (word_num){
+            case 1:
+                word_div.innerHTML="静";
+                break;
+            case 2:
+                word_div.innerHTML="一";
+                break;
+            case 3:
+                word_div.innerHTML="静";
+                break;
+            case 4:
+                word_div.innerHTML="我";
+                break;
+            case 5:
+                word_div.innerHTML="静";
+                break;
+            case 6:
+                word_div.innerHTML="一";
+                break;
+            case 7:
+                word_div.innerHTML="静";
+                break;
+            default:
+            word_div.innerHTML="error";
+            break;
+        }
+        word_num+=1;
+        if(word_num==8){
+            word_num=1
+        }
+        var word_color="rgb("+rnd(0,255)+","+rnd(0,255)+","+rnd(0,255)+")";
+        word_div.style.color=word_color;
+        document.body.appendChild(word_div);
+    }
+    }
+</script>
+</body>
+</html>

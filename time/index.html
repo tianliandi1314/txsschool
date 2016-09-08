@@ -1,0 +1,83 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-30 15:03 2016/8/30
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        #u3{
+            width: 360px;
+            height: 360px;
+            border: 1px solid red;
+            border-sizing:border box;
+
+        }
+        #ul #l5{
+            width: 10px;
+            height: 250px;
+            background: #f9c;
+            border-radius: 5px;
+            position: absolute;
+            left: 10px;
+            top: 175px;
+        }
+        #ul #l6{
+            width: 16px;
+            height: 180px;
+            background: #f6c;
+            position: absolute;
+            top: 50px;
+            left: 172px;
+        }
+        #u3 #l6:before{
+            content:"";
+            width: 0;
+            height: 0;
+            border: 16px solid #000;
+            border-top:none;
+            border-left:8px solid transparent;
+            border-right:8px solid transparent ;
+            position: absolute;
+            top: -20px;
+
+        }
+        #ul #l6{
+            width: 20px;
+            height: 100px;
+            background: #f6c;
+            position: absolute;
+            top: 80px;
+            left: 170px;
+        }
+        #u3 #l6:before{
+            content:"";
+            width: 0;
+            height: 0;
+            border: 20px solid #000;
+            border-top:none;
+            border-left:10px solid transparent;
+            border-right:10px solid transparent ;
+            position: absolute;
+            top: -20px;
+
+        }
+    </style>
+    <link rel="stylesheet" href=" ">
+</head>
+<body>
+<ul id="u3">
+    <li id="li"></li>
+</ul>
+</body>
+</html>

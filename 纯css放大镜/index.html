@@ -1,0 +1,123 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-30 20:03 2016/8/30
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #999;
+            font-size: 14px;
+            color:#000;
+        }
+        .small{
+            position: relative;
+            width: 382px;
+            height: 480px;
+            background: url("image/img_small.jpg") no-repeat;
+            margin: 150px 0 20px 100px;
+            background: blue;
+
+        }
+        .large{
+            width: 660px;
+            height: 430px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+        }
+        .large img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: top 0.3s;
+        }
+        .hand{
+            display: block;
+            width: 382px;
+            height: 168px;
+            background: red;
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            transition: top 0.3s;
+        }
+        .small p{
+            width: 382px;
+            height: 23px;position: relative;
+            z-index: 12;
+            cursor: crosshair;
+        }
+        .small p:hover ~.hand{
+            opacity: 0.4;
+            transition: 0.2s;
+        }
+        .small p:hover ~.large{
+            left: 400px;
+            background: red;
+        }
+        .small p:hover ~.large .aimg{
+            opacity: 1;
+            transition:0.5s;
+        }
+        .small p:nth-of-type(1):hover ~.hand{top:0px}
+        .small p:nth-of-type(2):hover ~.hand{top:17px}
+        .small p:nth-of-type(3):hover ~.hand{top:34px}
+        .small p:nth-of-type(4):hover ~.hand{top:51px}
+        .small p:nth-of-type(5):hover ~.hand{top:68px}
+        .small p:nth-of-type(6):hover ~.hand{top:85px}
+        .small p:nth-of-type(7):hover ~.hand{top:102px}
+        .small p:nth-of-type(8):hover ~.hand{top:119px}
+        p:nth-of-type(1):hover ~.large img{top:0}
+        p:nth-of-type(2):hover ~.large img{top:-20px}
+        p:nth-of-type(3):hover ~.large img{top:-40px}
+        p:nth-of-type(4):hover ~.large img{top:-80px}
+
+
+    </style>
+</head>
+<body>
+<div class="small">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <span class="hand"></span>
+    <div class="large"><img src="image/img.jpg" alt="加载中"></div>
+</div>
+</body>
+</html>

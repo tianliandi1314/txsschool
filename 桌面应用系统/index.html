@@ -1,0 +1,147 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-26 20:32 2016/8/26
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OS</title>
+    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background: url("images/5.jpg") 100% 100%;
+        }
+        .menu{
+            position: absolute;
+            width:200px;
+            background: #fff;
+            box-shadow: 0 0 10px #000;
+            display: none;
+        }
+        .menu ul li{
+            border-bottom:1px solid #ddd;
+            text-align: center;
+            font:14px/35px "微软雅黑";
+        }
+        .menu ul li:hover{
+            background: blue;
+            color:#fff;
+            cursor: pointer;
+        }
+        #bb{width:710px;height:360px;background:rgba(0,0,0,0.5);position:absolute;top:150px;left:200px;border:1px solid #000;display:none; z-index:-1;}
+        #bb h3{height:43px;background:url("images/title_bg.jpg");color:#fff;font-size:18px;
+            font-family:"微软雅黑";font-weight:100;/*文字加粗100*/
+        }
+        #bb h3 img.close{float:right;margin:10px 10px 0px 0px;}
+        #bb ul li{width:200px;height:125px;border:5px solid #ffffff;list-style:none;/*去圆点*/float:left;margin:10px 10px;}
+    </style>
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li>添加应用</li>
+        <li>获取课程</li>
+        <li>添加笔记</li>
+        <li>刷新</li>
+        <li>上传资料</li>
+        <li>更换背景</li>
+        <li>注销</li>
+    </ul>
+</div>
+<div id="bb">
+    <h3>桌面背景<img src="images/close.png" alt="" class="close"></h3>
+    <ul>
+        <li ><img src="images/s_1.jpg" shuxing="images/1.jpg" alt=""></li>
+        <li ><img src="images/s_2.jpg" shuxing="images/2.jpg" alt=""></li>
+        <li ><img src="images/s_3.jpg" shuxing="images/3.jpg" alt=""></li>
+        <li ><img src="images/s_4.jpg" shuxing="images/4.jpg" alt=""></li>
+        <li ><img src="images/s_5.jpg" shuxing="images/5.jpg" alt=""></li>
+        <li ><img src="images/s_6.jpg" shuxing="images/6.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+
+<script src="js/jquery.js"></script>
+<script>
+    $(function(){
+        $(document).contextmenu(function () {
+            return false;
+        });
+    /*document.oncontextmenu=function () {
+        return false;
+    }*/
+        $(document).mousedown(function (e) {
+            var key=e.which;
+            if(key==3){
+                var _top=e.clientY;
+                var _left=e.clientX;
+                $(".menu").css({left:_left+"px",top:_top+"px"}).show();
+                /*var H=document.documentElement.clientHeight;
+                var h=$(".menu").offsetWidth;
+                var MaxH=H-h;
+                if(_top>MaxH){
+                    $(".menu").css({left:_left+"px",top:_top-h+"px"}).show();
+                }*/
+            }
+            if(key==1){
+            $(document).click(function(){
+                $(".menu").hide();
+            })
+            }
+            return false;
+        });
+
+        $(".menu ul li").click(function () {
+            var index=$(this).index();
+            if(index==0){
+                alert("功能正在开发中")
+            }
+            if(index==1){
+                alert("功能正在开发中")
+            }
+            if(index==2){
+                alert("功能正在开发中")
+            }
+            if(index==3){
+                window.location.reload();
+            }
+            if(index==4){
+                alert("功能正在开发中")
+            }
+            if(index==5){
+                $("#bb").show();
+            }
+            if(index==6){
+                window.close();
+            }
+        })
+        //更换背景
+        $("#bb ul li").click(function () {
+           var myImg= $(this).find("img").attr("shuxing");
+            //alert(myImg);
+            $("body").css("background","url("+myImg+") 100% 100%");
+
+        });
+        /*$("#bb ul li").click(function(){
+            var myImg=$(this).find("img").attr("shuxing");
+            //alert(myImg); //attr()  返回被选中元素的属性值
+            $("body").css("background","url("+myImg+") no-repeat");
+        });*/
+    })
+</script>
+
+
+</html>

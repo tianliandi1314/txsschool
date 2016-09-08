@@ -1,0 +1,38 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-21 15:33 2016/8/21
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+
+    <style type="text/css"></style>
+</head>
+<body>
+<div id="div1"></div>
+<input type="button" value="全选" id="all">
+
+<script type="text/javascript">
+    $(function () {
+        var val="";
+        for(var i=0;i<5;i++){
+            val+="<input type='checkbox'/>";
+            $("#div1").html(val);
+        }
+
+        $('#all').click(function(){
+            $("input[type='checkbox']").attr("checked", true);
+
+            /*var arr=document.getElementsByTagName('input');
+            for(var i=0;i<5;i++){
+                arr[i].checked=true;
+            }*/
+        })
+    })
+</script>
+</body>
+</html>

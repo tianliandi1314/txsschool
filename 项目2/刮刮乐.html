@@ -1,0 +1,78 @@
+<!--
+*挂挂乐.html
+*@auther Administrator
+*@create 2016-08-15 19:57 2016/8/15
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开心刮刮乐</title>
+    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        .box{
+            width: 500px;
+            height: 500px;
+            background: url("3.jpg") no-repeat;
+            /*background-position: -150px 0;*/
+            background-size: 100% 100%;
+            position: relative;
+            margin: 0 auto;
+
+        }
+        #myCanvas{
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" >
+    <canvas id="myCanvas" width="500px" height="500px"></canvas>
+</div>
+    <script>
+        var mCan=document.querySelector('#myCanvas');
+        //alert(mCan);
+        oBox=document.querySelector('.box');
+        var can=mCan.getContext('2d');
+        var x=mCan.width;
+        var y=mCan.height;
+        var oImg=new Image();
+        oImg.src='gao4.jpeg';
+        //oImg.opacity=0.5;
+        oImg.onload=function () {
+            can.beginPath();
+            can.drawImage(oImg,0,0,x,y);
+            can.closePath();
+        };
+        var startEvtName='mousedown';
+        var moveEvtName='mousemove';
+        var endEvtName='mouseup';
+        function draw(event) {
+            var x1=event.clientX-oBox.offsetLeft;
+            var y1=event.clientY;
+            can.beginPath();
+            can.globalCompositeOperation='destination-out';
+            can.arc(x1,y1,10,0,Math.PI*2);
+            can.fill();
+            can.closePath();
+        }
+        mCan.addEventListener(startEvtName,function () {
+            mCan.addEventListener(moveEvtName,draw);
+
+        },false);
+        mCan.addEventListener(endEvtName,function () {
+            //mCan.removeEventListener(startEvtName,draw);
+            mCan.removeEventListener(moveEvtName,draw);
+        },false)
+
+    </script>
+</body>
+</html>

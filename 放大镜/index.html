@@ -1,0 +1,180 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-28 20:05 2016/8/28
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:"微软雅黑";
+        }
+        #warp{
+            margin: 0 auto;
+        }
+        #div1{
+            width: 810px;
+            height: 520px;
+            padding: 30px 30px 0px 20px;
+            margin:50px auto;
+            background-image: url("imgs/equip_detail_bg.png");
+            background-size: 100% 100%;
+            position: relative;
+        }
+        #div2{
+            width: 400px;
+            height: 500px;
+            border-radius: 5px;
+            float: left;
+            background-image: url("imgs/cgcold.png"),url(imgs/herodetail-skillpanel.png);
+            background-size: 400px 500px;
+        }
+        #div3{
+            width: 200px;
+            height: 250px;
+            background: #999;
+            opacity:0.3;
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        #big{
+            width: 400px;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            left: 420px;
+            background-image: url("imgs/cgcold.png");
+            background-repeat: no-repeat;
+
+        }
+        h3{
+            width: 400px;
+            line-height: 35px;
+            text-align: center;
+            float: left;
+            color: #fff;
+        }
+        p{
+            width: 390px;
+            line-height: 25px;
+            float: left;
+            color: #fff;
+            padding-left: 10px;
+            font-size: 14px;
+        }
+        p img{
+            width: 78px;
+            float: left;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #fff;
+            display: inline-block;
+        }
+        p span{
+            padding: 5px;
+            width: 300px;
+            float: left;
+            display: inline-block;
+        }
+        #btn img{
+            float: right;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div id="warp">
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+        <h3>《刀塔传奇》之小冰冰</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorum facere labore, quas quibusdam quidem!</p>
+        <p>
+            <img src="imgs/138.jpg" alt="">
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci enim incidunt officiis. Adipisci, at atque autem</span>
+        </p>
+
+        <p>
+            <img src="imgs/139.jpg" alt="">
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci enim incidunt officiis. Adipisci</span>
+        </p>
+
+        <p>
+            <img src="imgs/134.jpg" alt="">
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci enim incidunt officiis. </span>
+        </p>
+
+        <p>
+            <img src="imgs/222.jpg" alt="">
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci enim incidunt officiis. </span>
+        </p>
+        <div id="btn">
+            <img src="imgs/herodetail-detail-close.png" alt="">
+        </div>
+        <div id="big"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#div3,#big").hide();
+        $("#div2").hover(function () {
+            $("#div3,#big").show();
+           $("#div3").mousemove(function (e) {
+                var x1=e.pageX;
+                console.log(x1);
+                var x2=$("#div2").offset().left;
+                var x=x1-x2-100;
+                if(x<=0){
+                    x=0;
+                }
+                if(x>200){
+                    x=200;
+                }
+                var y1=e.pageY;
+                var y2=$("#div2").offset().top;
+               document.title=y;
+                var y=y1-y2-75;
+                if(y<=0){
+                    y=0;
+                }
+                if(y>250){
+                    y=235;
+                }
+
+                $("#div3").css({"left":x+"px","top":y+"px"});
+               $("#big").css({"background-position":-2*x+"px "+(-2*y)+"px"})
+               console.log($("#big").css("backgroundPosition"))
+
+            })
+
+            /*$(document).mousemove(function(e){
+                console.log(e.pageX + ", " + e.pageY);
+            });*/
+
+        },function () {
+            $("#div3,#big").hide();
+        })
+    })
+</script>
+</body>
+</html>

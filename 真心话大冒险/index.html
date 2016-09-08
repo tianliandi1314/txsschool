@@ -1,0 +1,180 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-27 20:03 2016/8/27
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>真心话大冒险</title>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+
+    <script type="text/javascript">
+        'use strict';
+            $(function () {
+                $(".postrlt").on("click",postmsg);
+                function postmsg() {
+                    //var MyName=$.trim($)
+                    var myname=$("#txtName").val();
+                    var myid=Math.floor(Math.random()*4+1);
+                    if(myname==""){
+                        alert("请输入名字");
+                        return;
+                    }
+                    var json={
+                        data:[
+                        {
+                            id:"1",
+                            tag:"抱一位异性，直到下一轮真心话",
+                            url:"imgs/1.jpg"
+                        },
+                        {
+                            id:"2",
+                            tag:"摆3个芙蓉姐姐s型",
+                            url:"imgs/2.jpg"
+                        },
+                        {
+                            id:"3",
+                            tag:"男生把女生逼到角落，壁咚",
+                            url:"imgs/3.jpg"
+                        },
+                        {
+                            id:"4",
+                            tag:"邀请一个女生，情歌对唱",
+                            url:"imgs/4.jpg"
+                        },
+                        {
+                            id:"5",
+                            tag:"跪地求婚状",
+                            url:"imgs/5.jpg"
+                        }
+                        ]
+                    };
+                    /*var reqHtml="< class='fff'><span>测试结果:</span><br/><span>"+myName+"</span>：您的真心话大冒险是【"+json.data[myid].tag+"】 </br>下图里面花的这个哟！哈哈</p><p><img src=' "+json.data[myId].url+" ' width='100%' ></p></p>";*/
+                    var reqhtml="<p class='fff'><span>测试结果：</span><br><span class='fff'>"+
+                            myname+"</span>:恭喜您，您的真心话大冒险是【"+
+                            json.data[myid].tag+
+                            "】</br>下图里面画的这个哟！哈哈</p><p><img src='"+
+                            json.data[myid].url+"' width='100%'></p><p class='btn'><a class='postrlt' href='javascript:window.location.reload();'>再玩一次</a></p>";
+
+                    $(".warper").hide();
+                    $("#bg").hide();
+
+                    $("#result").html(reqhtml);
+                    }
+                })
+
+
+    </script>
+    <style type="text/css">
+        body{
+            height: 100%;
+            background: #000;
+        }
+        .fff{
+            color:#fff;
+        }
+        .warp-contain{
+            margin: 0 auto;
+            position: relative;
+            max-width: 640px;
+            min-width: 320px;
+            box-sizing: border-box;
+            background-color: black;
+        }
+        #bg{
+            margin: 0 auto;
+            display: block;
+            background-image: url(imgs/bg.jpg) ;
+            background-repeat: no-repeat;
+            transform: scale(1.5);
+            width:16rem;
+            margin-top:3rem ;
+
+        }
+        .warper{;
+            margin: 0 auto;
+            width: 16rem;
+            position: relative;
+            bottom: 0;
+        }
+        #result{
+            font-size: 16px;
+            width: 80%;
+            position: absolute;
+            top: 40px;
+        }
+        .input-name{
+            width: 80%;
+            margin: 0 auto;
+        }
+        .input-name input{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            height: 2rem;
+            border: 1px solid #fff;
+            outline: none;
+            color:#999;
+        }
+        #txtName{
+            height: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .postrlt{
+            font-size: 1rem;
+            display: block;
+            width: 80%;
+            height:2rem;
+            line-height: 2rem;
+            vertical-align: middle;
+            border-radius: 0.2rem;
+            text-align: center;
+            margin: 0 auto;
+            background-color: #FF2EA2;
+            color:white;
+            text-decoration: none;
+        }
+        #result{
+            font-size: 1.2rem;
+            margin: 0 auto;
+            box-sizing:border-box;
+            width: 100%;
+            padding: 0 3rem;
+        }
+
+    </style>
+</head>
+<body>
+<div class="warp-contain">
+    <img id="bg" src="imgs/bg.jpg" alt="">
+
+    <div id="result">
+
+    </div>
+    <div class="warper" id="wraper">
+        <p class="input-name">
+            <input type="text" name="txtName" id="txtName" placeholder="请输入你的名字">
+        </p>
+        <p class="btn">
+            <a class="postrlt" id="postrlt">开始真心话大冒险</a>
+        </p>
+    </div>
+
+</div>
+
+<script>
+    var oWarp=document.querySelector('.warp-contain');
+    (function(win,doc){
+        function change(){
+            doc.style.fontSize=doc.offsetWidth/320*20+'px';
+        }
+        change();
+        win.addEventListener('resize',change,false);
+    })(window,oWarp);
+</script>
+</body>
+</html>

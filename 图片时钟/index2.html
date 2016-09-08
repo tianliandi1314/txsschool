@@ -1,0 +1,205 @@
+<!--
+*index2.html
+*@auther Administrator
+*@create 2016-08-31 10:10 2016/8/31
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        html,body{
+            background: #eee;
+            height: 100%;
+            border: 1px solid red;
+        }
+        .clock{
+            width: 450px;
+            height: 450px;
+            border: 20px solid #DEDEEF;
+            border-radius: 245px;
+            margin: 200px auto;
+            border-left: 20px solid transparent;
+        }
+        .cir{
+            width: 380px;
+            height: 380px;
+            border: 20px solid #535258;
+            border-radius:210px;
+            margin: 15px;
+            background: #1F1E22;
+            position: relative;
+        }
+        .l1{
+            width:10px;
+            height:20px;
+            border-radius:5px;
+            background:#CCC;
+            position:absolute;
+            top:0px;
+            left:185px;
+        }
+        .l2{
+            width:10px;
+            height:10px;
+            border-radius:5px;
+            background:#CCC;
+            position:absolute;
+            top:0px;
+            left:185px;
+        }
+        #u1{
+            position: relative;
+            width: 10px;
+            height: 20px;
+            background: red;
+            border-radius: 5px;
+        }
+        #u2{
+            background: blue;
+            position: absolute;
+            height: 360px;
+            width: 360px;
+            border-radius: 180px;
+            top: 0;
+            left: 0;
+            background:url("imgs/44.png");
+            background-size: 330px 280px;
+            background-position: center center;
+        }
+        .l3{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background: #f9c;
+            position: absolute;
+            top: 155px;
+            left: 155px;
+            z-index: 8;
+        }
+        .l4{
+            width:10px;
+            height:250px;
+            background:#F9C;
+            border-radius:5px;
+            position:absolute;
+            top:0px;
+            left:175px;
+            z-index:7;
+            transform:rotate(0deg);
+        }
+        .l5{
+            width:16px;
+            height:140px;
+            background:#F69;
+            border-radius:1px;
+            position:absolute;
+            top:40px;
+            left:172px;
+            z-index:6;
+            transform:rotate(0deg);
+        }
+        .l5:before{
+            content: "";
+            width: 0;
+            height: 0;
+            border: 20px solid #f69;
+            border-top:none;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            position: absolute;
+            top: -20px;
+        }
+        .l6{
+            width:20px;
+            height:100px;
+            background:#FF6FB7;
+            position:absolute;
+            top:70px;
+            left:170px;
+            z-index:5;
+            transform:rotate(0deg);
+        }
+        .l6:after{
+            content:"";
+            width:0px;
+            height:0px;
+            border:20px solid #FF6FB7;
+            border-top:none;
+            border-left:10px solid transparent;
+            border-right:10px solid transparent;
+            position:absolute;
+            top:-20px;
+            left:0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="clock">
+
+        <div class="cir">
+            <ul id="u1"></ul>
+            <ul id="u2">
+                <li class="l3"></li>
+                <li class="l4"></li>
+                <li class="l5"></li>
+                <li class="l6"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(function () {
+
+            var c="";
+            for(var i=0;i<=60;i++){
+                var b=i%5;
+                if(b==0){
+                    c+="<li class='l1'></li>";
+                }else{
+                    c+="<li class='l2'></li>";
+                }
+            }
+            $("#u1").append(c);
+
+            $("#u1 li").each(function (n) {
+                $("#u1 li:eq("+n+")").css({
+                    "transform-origin":"5px 190px",
+                    "transform":"rotate("+6*(n+0)+"deg)"
+                })
+                
+            });
+
+                /*var c="";     /!*定义一个变量*!/
+                for(var a=1; a<=60; a++){       /!*for循环*!/
+                    var b=a%5;         /!*长点*!/
+                    if(b==0){
+                        c+="<li class='l1'></li>";    /!*+=  即c=c+后面的*!/
+                    }else{
+                        c+="<li class='l2'></li>";
+                    }
+                }
+                /!* alert(c); *!/
+                $("#u1").append(c);
+                $("#u1 li").each(function(n){    /!*遍历*!/
+                    $("#u1 li:eq("+n+")").css({"transform-origin":"5px 190px","transform":"rotate("+6*(n+1)+"deg)"});
+                })*/
+        })
+    </script>
+</body>
+</html>

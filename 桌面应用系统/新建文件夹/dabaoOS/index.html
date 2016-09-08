@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <!--声明当前页面的编码集:charset=gbk,gb2312(中文编码),utf-8国际编码-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- 当前页面的三要素 -->
+  <title>javascript 第五节课</title>
+  <meta name="Keywords" content="关键词,关键词" />
+  <meta name="Description" content="" />
+  <meta name="publishid" content="自从有了大宝老师妈妈再也不用担心我的学习。" />
+  <meta name="Author" content="" />
+  <style>
+    #menu{width:50px; height:50px; text-align:center; line-height:50px; border:1px solid red; margin:50px auto;}
+  </style>
+ </head>
+	 <body>
+	      <div id="menu" str='1' onclick="a(this)">666</div> 
+	   
+	   <script>
+	     //点赞      
+		 function a(num){
+          var str=document.getElementById("menu").attributes["str"].value;
+		  if(str==1){
+		   num.innerHTML=num.innerHTML*1+1; //  number  666 string*1 number+1  667
+            document.getElementById("menu").attributes["str"].value=str*1+1;   //2
+		  }else if(str==2){
+		   num.innerHTML=num.innerHTML*1-1;   //  number  667-1
+		    document.getElementById("menu").attributes["str"].value=str*1-1;  // number   //2-1
+		  }
+          //    num.innerHTML=num.innerHTML*1+1;
+		 }
+		
+
+	   </script>	
+	 </body>
+</html>

@@ -1,0 +1,77 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-09-01 20:01 2016/9/1
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        'use strict';
+        window.onload = function () {
+
+        }
+    </script>
+    <style type="text/css">
+        .main{
+            width: 500px;
+            margin: 50px auto;
+            border: 1px solid red;
+        }
+        .text{
+            width: 500px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+        .text ul{list-style: none}
+        .text ul li{
+            height: 25px;}
+        .box{
+            width: 400px;
+            height: 330px;
+            border: 1px solid #000000;
+        }
+        .box ul li {
+            width: 330px;
+            height: 330px;
+            margin: 0 auto;
+        }
+        .box ul li{
+            list-style: none;
+            width: 64px;
+            height: 64px;
+            float: left;
+            border:1px solid #000;
+        }
+
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="box">
+        <ul id="ul1">
+
+        </ul>
+    </div>
+    <div class="text">
+        <ul>
+            <li><input type="button" value="start" id="start" onclick="startGame()"></li>
+            <li><input type="button" value="over" id="over" onclick="stopGame()"></li>
+            <li>游戏时间：1分钟</li>
+            <li>地鼠出现的时间间隔：1秒钟</li>
+            <li>地鼠停留时间：1s</li>
+            <li>
+                <div id="time"></div>
+            </li>
+            <li>----分数-----</li>
+            <li>
+                <div id="score"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="js/js.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0px;
+	padding:0px;
+}
+ul,li{
+	list-style:none;
+}
+body{
+	background:#EEE;
+}
+#dv1{
+	width:450px;
+	height:450px;
+	border:20px solid #DEDEEF;
+	border-radius:245px;
+	margin:100px auto;
+	border-left:20px solid transparent;
+}
+#dv2{
+	width:380px;
+	height:380px;
+	border:20px solid #535258;
+	border-radius:210px;
+	margin:15px;
+	background:#1F1E22;
+	position:relative;
+}
+#u1{
+	width:380px;
+	height:380px;
+	border-radius:190px;
+	background:#333;
+	position:relative;
+}
+.l1{
+	width:10px;
+	height:20px;
+	border-radius:5px;
+	background:#CCC;
+	position:absolute;
+	top:0px;
+	left:185px;
+}
+.l2{
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	background:#CCC;
+	position:absolute;
+	top:0px;
+	left:185px; 
+}
+#u2{
+	width:360px;
+	height:360px;
+	border-radius:180px;
+	margin:10px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background:url(../imgs/44.png) no-repeat;
+	background-size:330px 280px;
+	background-position:center center;
+}
+.l3{
+	width:50px;
+	height:50px;
+	border-radius:25px;
+	background:#F9C;
+	position:absolute;
+	top:155px;
+	left:155px;
+	z-index:8;
+}
+.l4{
+	width:10px;
+	height:250px;
+	background:#F9C;
+	border-radius:5px;
+	position:absolute;
+	top:0px;
+	left:175px;
+	z-index:7;
+	transform:rotate(0deg);
+}
+.l5{
+	width:16px;
+	height:140px;
+	background:#F69;
+	border-radius:1px;
+	position:absolute;
+	top:40px;
+	left:172px;
+	z-index:6;
+	transform:rotate(0deg);
+}
+.l5:before{
+	content:"";
+	width:0px;
+	height:0px;
+	border:20px solid #F69;
+	border-top:none;
+	border-left:8px solid transparent;
+	border-right:8px solid transparent;
+	position:absolute;
+	top:-20px;
+}
+.l6{
+	width:20px;
+	height:100px;
+	background:#FF6FB7;
+	position:absolute;
+	top:70px;
+	left:170px;
+	z-index:5;
+	transform:rotate(0deg);
+}
+.l6:after{
+	content:"";
+	width:0px;
+	height:0px;
+	border:20px solid #FF6FB7;
+	border-top:none;
+	border-left:10px solid transparent;
+	border-right:10px solid transparent;
+	position:absolute;
+	top:-20px;
+	left:0px;
+}
+
+
+                                                                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

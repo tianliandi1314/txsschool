@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.pkName {
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			display: inline-block;
+			font-size: 30px;
+			background: #ccc;
+		}
+		
+		.pk {
+			width: 100px;
+			height: 50px;
+			color: red;
+			font-size: 50px;
+			display: inline-block;
+		}
+		
+		.pkBtn {
+			display: block;
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			background: red;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="pkName">键盘侠</div>
+	<div class="pk">VS</div>
+	<div class="pkName">小龙虾</div>
+	<div class="pkBtn " onclick="startPK()">开始PK</div>
+	<div class="pkcontent"></div>
+	<div class="pkend" id="pk_end">
+		<input type="text" placeholder="请输入第一个名字" name="packName1" id="packName1">
+		<input type="text" placeholder="请输入第二个名字" name="packName2" id="packName2">
+	</div>
+	<script>
+		var ispking = false;
+		var sklist = [
+			"发起了猛烈进攻，打的他满地找牙，对方损失了",
+			"使用了大招，对方假发被打掉了！损失了",
+			"使用了魅惑技能，对方迷得神魂颠倒，损失了2W粉丝，损失了"
+
+		]
+
+		function startPk() {
+			if (document.getElementById("packName1").value == "" || document.getElementById("packName2").value == "") {
+				alert('请输入两个PK的名字')；
+			} else {
+				var person1 = document.getElementsByClassName("pkName")[0];
+				var person2 = document.getElementsByClassName("pkName")[1];
+
+				person1.innerHTML = document.getElementById('pcakName1').value;
+				person1.innerHTML = document.getElementById('pcakName2').value;
+
+				if (ispking) {
+					return;
+				}
+				ispking = true;
+
+				var content = document.getElementsByClassName("pkcontent");
+				content.innerHTML = '';
+				var times = 1;
+				var turn = 0.5 - Math.random();
+				person1.hp = 100;
+				person2.hp = 100;
+				var timer = setInterval(fight, 200);
+
+
+			}
+
+	</script>
+</body>
+
+</html>

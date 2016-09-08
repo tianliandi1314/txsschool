@@ -1,0 +1,68 @@
+<!--
+*index.html
+*@auther Administrator
+*@create 2016-08-26 15:02 2016/8/26
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		'use strict';
+		$(function() {
+			var c = "";
+			$("#tx").focus(function() {
+				$("#tx").val("");
+			});
+			$("#tx").blur(function() {
+				c = $("#tx").val();
+			});
+			$("#div3").click(function() {
+				var arr = ["<img src='imgs/3.png'>", "<img src='imgs/4.png'>", "<img src='imgs/5.png'>", "<img src='imgs/6.png'>"];
+				var d = Math.floor(Math.random() * 4);
+				//alert(d);
+				$("#tx").val("");
+				if (c != "") {
+					$("#u2").append("<li><div class='div4'>" + arr[d] + "</div>" + c + "<a href='javascript:;'>删除</a></li>");
+					$(".div2").remove();
+				}
+				$("#u2 li a").click(function() {
+					$(this).parent("li").remove();
+				})
+			})
+		});
+
+	</script>
+	<style type="text/css">
+		#one {
+			color: red;
+			background: url(imgs/1.png) #FFF no-repeat 12px 12px;
+		}
+
+	</style>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+	<div id="div1">
+		<ul id="u2">
+			<!--<li><div class='div4'>
+            <img src="imgs/7.png" alt="">
+        </div>asdfasdfasdf<a href='javascript:;'>删除</a></li>-->
+		</ul>
+		<ul class="u3">
+			<li id="one">收藏 <span>0</span></li>
+			<li id="tow">赞 <span>0</span></li>
+			<li id="three"><a href="http://bbs.xsteach.com/forum?fid=19">分享</a></li>
+
+		</ul>
+		<div class="div2">本帖还没有回复，感紧来抢沙发</div>
+		<textarea name="" id="tx" cols="30" rows="10" placeholder="快来留下你的脚印"></textarea>
+		<div id="div3">发表</div>
+	</div>
+</body>
+
+</html>

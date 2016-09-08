@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    canvas{
+        display: block;
+        background:#ccc;
+        margin: 0 auto;
+    }
+</style>
+<body>
+    <canvas width="800" height="600"></canvas>
+    <script>
+        window.onload=function(){
+            var oCan=document.querySelector('canvas');
+            var ctx=oCan.getContext('2d');
+            ctx.beginPath();
+            ctx.arc(100,100,50,0,Math.PI*2);
+            //ctx.fill();
+            ctx.stroke()
+            ctx.closePath();
+            
+            console.log(oCan);
+        }
+    </script>
+</body>
+</html>
